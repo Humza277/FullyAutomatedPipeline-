@@ -44,6 +44,13 @@ now we need to set the agent to run build on
 to do this we need to create a new ec2 instance for the worker node
 set it up
 
+add port 8080 to the ingree groups and put the source as the main jenkins ec2
+do the same to the main with the source being the slave ip
+
+ssh into the slave and and cd into the /opt/
+mkdir jenkins folder
+
+
 
 
 
