@@ -54,6 +54,12 @@ mkdir jenkins folder
 
 
 
+# Jenkins
+
+add java script to it #
+
+
+
 
 
 java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret 6866cd01a5727b100524cb4a16eae62ff026da52b51be0dc5fe9e30f73857bee -workDir "/opt/jenkins"
