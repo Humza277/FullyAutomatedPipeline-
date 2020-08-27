@@ -63,3 +63,10 @@ BOOBS
 
 
 java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret 6866cd01a5727b100524cb4a16eae62ff026da52b51be0dc5fe9e30f73857bee -workDir "/opt/jenkins"
+
+
+
+Install npm on thw worker node
+
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs -y
