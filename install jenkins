@@ -4,6 +4,7 @@
 
 
 # ssh into the ubuntu ec2 server
+    ssh -i ~/.ssh/awsaccessjenkins.pem ubuntu@52.212.115.133
 
 # Update the os
 sudo apt update
@@ -47,8 +48,32 @@ set it up
 add port 8080 to the ingree groups and put the source as the main jenkins ec2
 do the same to the main with the source being the slave ip
 
-ssh into the slave and and cd into the /opt/
+
+# Worker Node
+
+ssh -i ~/.ssh/awsaccessjenkins.pem ubuntu@34.245.101.40
+
+cd /opt/
 mkdir jenkins folder
+sudo su
+sudo adduser jenkins
+    enter unix password : add
+    fullname- blank
+    room number - blank
+    work - blank
+    home -blank
+    other -blank
+cd
+sudo apt install default-jdk
+sudo apt install default-jre
+sudo apt upgrade
+
+sudo su
+cd /opt/jenkins
+# To run the agent
+java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret @secret-file -workDir "/opt/jenkins"
+
+
 
 
 
@@ -70,3 +95,7 @@ Install npm on thw worker node
 
 curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get install nodejs -y
+
+
+# Add the webhook to the github repo
+http://52.212.115.133:8080/github-webhook/
