@@ -122,3 +122,6 @@ make sure you have a docker repo
 
 
 what is happening
+
+# changed the app folder , moved it to top level
+# changed the docker file, no need to cd into the app, or copy it
