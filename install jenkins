@@ -13,7 +13,7 @@ sudo apt update
 # add repo to system
 wget -q -O - https://pkg.jenkins.io/debian/jenkins-ci.org.key | sudo apt-key add -
 
-# echo the repo to the souces list
+# echo the repo to the sources list
 echo deb https://pkg.jenkins.io/debian-stable binary/ | sudo tee /etc/apt/sources.list.d/jenkins.list
 
 # run update to get the new repo
@@ -45,7 +45,7 @@ now we need to set the agent to run build on
 to do this we need to create a new ec2 instance for the worker node
 set it up
 
-add port 8080 to the ingree groups and put the source as the main jenkins ec2
+add port 8080 to the ingress groups and put the source as the main jenkins ec2
 do the same to the main with the source being the slave ip
 
 
@@ -66,6 +66,10 @@ sudo adduser jenkins
 cd
 sudo apt install default-jdk
 sudo apt install default-jre
+
+# INSTALL NPM TO GET TESTS TO WORK
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
+sudo apt-get install nodejs -y
 sudo apt upgrade
 
 sudo su
@@ -74,29 +78,47 @@ cd /opt/jenkins
 java -jar agent.jar -jnlpUrl http://----THIS CHANGES----/computer/Agent%20Slave/slave-agent.jnlp -secret @secret-file -workDir "/opt/jenkins"
 
 
-
-
 # REMEMBER TO CHANGE THE IP INSIDE THE GLOBAL SETTINGS TO THE NEW JENKINS MAIN IP
 # INSIDE THE EC2 INSTANCES AS WELL
-
-
-# Jenkins
-
-add java script to it #
-
-
-
-
-
-java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret 6866cd01a5727b100524cb4a16eae62ff026da52b51be0dc5fe9e30f73857bee -workDir "/opt/jenkins"
-
-
-
-Install npm on thw worker node
-
-curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
-sudo apt-get install nodejs -y
+# CHANGE THE WEBHOOK IP
 
 
 # Add the webhook to the github repo
 http://52.212.115.133:8080/github-webhook/
+
+
+
+#Installing Docker
+
+Create EC2 instance
+
+ssh in
+
+once in run commands
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
+
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+sudo apt-get update
+
+apt-cache policy docker-ce
+
+sudo apt-get install -y docker-ce
+
+
+sudo systemctl status docker
+
+# Docker should now be running on your ec2 instance
+
+now copy your docker file across to the ec2 instance
+
+scp -i ~/.ssh/awsaccessjenkins.pem -r ~/PycharmProjects/FullyAutomatedPipeline-/app/Dockerfile ubuntu@54.194.116.207:/home/ubuntu/
+
+
+make sure you have a docker repo
+
+
+
+what is happening
