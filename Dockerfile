@@ -16,7 +16,7 @@ RUN npm install
 
 
 # from the current folder we want to copy everything into the working location of the container
-COPY .
+COPY . .
 
 # Second stage of our build to production - multi stage Docker build
 
