@@ -71,12 +71,13 @@ sudo apt upgrade
 sudo su
 cd /opt/jenkins
 # To run the agent
-java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret @secret-file -workDir "/opt/jenkins"
+java -jar agent.jar -jnlpUrl http://----THIS CHANGES----/computer/Agent%20Slave/slave-agent.jnlp -secret @secret-file -workDir "/opt/jenkins"
 
 
 
 
-
+# REMEMBER TO CHANGE THE IP INSIDE THE GLOBAL SETTINGS TO THE NEW JENKINS MAIN IP
+# INSIDE THE EC2 INSTANCES AS WELL
 
 
 # Jenkins
@@ -84,7 +85,7 @@ java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/s
 add java script to it #
 
 
-BOOBS aaaa
+
 
 
 java -jar agent.jar -jnlpUrl http://52.212.115.133:8080/computer/Agent%20Slave/slave-agent.jnlp -secret 6866cd01a5727b100524cb4a16eae62ff026da52b51be0dc5fe9e30f73857bee -workDir "/opt/jenkins"
