@@ -105,6 +105,7 @@ sudo apt-get update
 
 apt-cache policy docker-ce
 
+
 sudo apt-get install -y docker-ce
 
 
@@ -118,10 +119,10 @@ scp -i ~/.ssh/awsaccessjenkins.pem -r ~/PycharmProjects/FullyAutomatedPipeline-/
 
 
 make sure you have a docker repo
-
-
-
 what is happening
 
 # changed the app folder , moved it to top level
 # changed the docker file, no need to cd into the app, or copy it
+# add new pipe line job to jenkins
+# add docker ec2 ip + ssh credentials to job
+# change the script to make it work
