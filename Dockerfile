@@ -29,7 +29,7 @@ FROM node:alpine
 
 COPY --from=app /usr/src/app /usr/src/app
 
- Define the work directory for the second stage build
+# Define the work directory for the second stage build
 WORKDIR /usr/src/app
 
 
