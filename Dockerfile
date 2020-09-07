@@ -33,7 +33,7 @@ FROM node:alpine
 
 # Expose the port in which we will run the application
 
-EXPOSE 3000
+#EXPOSE 3000
 
 # CMD ["node", "seeds/seed.js", "start", "node", "app.js"]
 
