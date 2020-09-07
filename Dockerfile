@@ -24,11 +24,11 @@ FROM node:alpine
 #
 # This is the magic line that compressess the size and still provides full functionality
 # The application was lowered from 1GB to 150MB, a reduction of 85%
-
-COPY --from=app /usr/src/app /usr/src/app
-
-# Define the work directory for the second stage build
-WORKDIR /usr/src/app
+#
+#COPY --from=app /usr/src/app /usr/src/app
+#
+## Define the work directory for the second stage build
+#WORKDIR /usr/src/app
 
 
 # Expose the port in which we will run the application
