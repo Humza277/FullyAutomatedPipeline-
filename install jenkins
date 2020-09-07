@@ -126,3 +126,6 @@ what is happening
 # add new pipe line job to jenkins
 # add docker ec2 ip + ssh credentials to job
 # change the script to make it work
+
+07/09/2020
+added command to run mongo images
