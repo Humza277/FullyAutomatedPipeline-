@@ -2,6 +2,6 @@
 
 docker-compose up -d
 
-winpty docker exec -it $(docker ps -l --format "{{.ID}}") node seeds/seed.js
+sudo docker exec -it $(docker ps -l --format "{{.ID}}") node seeds/seed.js
 
 
